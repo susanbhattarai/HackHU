@@ -14,6 +14,9 @@
 
   </head>
   <body>
+    <div>
+      <h2> Susan </h2>
+    </div>
     <div id="mapid"></div>
   <script>
    // L.mapbox.accessToken = 'pk.eyJ1Ijoic3VzaGFudHN1c2FuMzkiLCJhIjoiY2lsZTZ6OGl5MGVqb3Voa3BpY3JsZXBtcCJ9.IXO82Vle6cGxtTJYPBQQIw';
@@ -24,11 +27,31 @@
     id: 'sushantsusan39',
     accessToken: 'pk.eyJ1Ijoic3VzaGFudHN1c2FuMzkiLCJhIjoiY2lsZTZ6OGl5MGVqb3Voa3BpY3JsZXBtcCJ9.IXO82Vle6cGxtTJYPBQQIw'
 }).addTo(mymap);
+    // L.polyline([[38.922, -77.0194],[38.9207463,-77.0225979]],
+    // {
+    //   color: 'red',
+    //   weight : 3,
+    //   opacity: 0.5
+    // }).addTo(map)
+    var pointA = new L.LatLng(38.922, -77.0194);
+    var pointB = new L.LatLng(38.9207463,-77.0225979);
+    var pointList = [pointA, pointB];
 
+    var firstpolyline = new L.polyline(pointList, {
+    color: 'red',
+    weight: 10,
+    opacity: 0.5,
+    smoothFactor: 1
+
+    });
+    firstpolyline.addTo(mymap);
     var marker = L.marker([38.922, -77.0194]).addTo(mymap);
     var marker1 = L.marker([38.9207463,-77.0225979]).addTo(mymap);
     marker.bindPopup("<b>Susan!</b><br>Map testing completed.").openPopup();
     marker1.bindPopup("Great Location");
+
+ 
+
     </script>
   </body>
 </html>
