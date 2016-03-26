@@ -6,6 +6,14 @@
         margin: 0;
         padding: 0;
         height: 100%;
+        width: 90%;
+        float: left;
+      }, #textid {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 10%;
+        float: right;
       }
     </style>
      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
@@ -14,8 +22,8 @@
 
   </head>
   <body>
-      <div class="col-md-8" id="mapid"></div>
-
+    <div id="mapid"></div>
+    <div id="textid"></div>
   <script>
    // L.mapbox.accessToken = 'pk.eyJ1Ijoic3VzaGFudHN1c2FuMzkiLCJhIjoiY2lsZTZ6OGl5MGVqb3Voa3BpY3JsZXBtcCJ9.IXO82Vle6cGxtTJYPBQQIw';
     var mymap = L.map('mapid').setView([38.922, -77.0194], 17);
@@ -25,7 +33,12 @@
     id: 'sushantsusan39',
     accessToken: 'pk.eyJ1Ijoic3VzaGFudHN1c2FuMzkiLCJhIjoiY2lsZTZ6OGl5MGVqb3Voa3BpY3JsZXBtcCJ9.IXO82Vle6cGxtTJYPBQQIw'
 }).addTo(mymap);
-  
+    // L.polyline([[38.922, -77.0194],[38.9207463,-77.0225979]],
+    // {
+    //   color: 'red',
+    //   weight : 3,
+    //   opacity: 0.5
+    // }).addTo(map)
     var pointA = new L.LatLng(38.922, -77.0194);
     var pointB = new L.LatLng(38.9207463,-77.0225979);
     var pointList = [pointA, pointB];
@@ -37,11 +50,20 @@
     smoothFactor: 1
 
     });
-    firstpolyline.addTo(mymap);
-    var marker = L.marker([38.922, -77.0194]).addTo(mymap);
-    var marker1 = L.marker([38.9207463,-77.0225979]).addTo(mymap);
-    marker.bindPopup("<b>Susan!</b><br>Map testing completed.").openPopup();
-    marker1.bindPopup("Great Location");
+
+//for green map pointer icon
+var policeIcon = new L.Icon({
+  iconUrl: 'https://dl.dropboxusercontent.com/s/g8803amp99e37sr/marker-icon-red.png',
+  //shadowUrl: 'https://dl.dropboxusercontent.com/s/g8803amp99e37sr/marker-icon-red.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+    //firstpolyline.addTo(mymap);
+    var campusPoliceOffice = L.marker([38.9197003,-77.0174145],{icon: policeIcon}).addTo(mymap);
+    campusPoliceOffice.bindPopup("Howard University Police Station");
 
  
 
