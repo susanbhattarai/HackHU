@@ -17,12 +17,15 @@
         position: static;
       }
       .sidePanel {
-        margin-left: 80em;
+        margin-left: 75em;
         padding: 0em;
+        text-align: left;
         position: absolute;
         font-family: Arial;
         font-size : 18px;
         color: #3F51B5;
+        background-color: #9FA8DA;
+        height: 100%;
       }
 
       .studentlist {
@@ -44,11 +47,14 @@
 
       <div class="sidePanel" ng-controller="myCtrl">
         <center>
-       <ul>
+          <h1> Panel </h1>
+          <h2> Tracked Students </h2>
+      
+    <ol>
         <li  ng-repeat="x in student"> 
           {{x.name + ' ' + x.classification + ' ' + x.phone}}
         </li>
-        </ul>
+        </ol>
       </center>
       </div>
    
@@ -68,6 +74,7 @@
     //   weight : 3,
     //   opacity: 0.5
     // }).addTo(map)
+  
     var pointA = new L.LatLng(38.922, -77.0194);
     var pointB = new L.LatLng(38.9207463,-77.0225979);
     var pointList = [pointA, pointB];
@@ -79,7 +86,39 @@
     smoothFactor: 1
 
     });
+    // Police Icon for the policeman
+    var policeIcon = new L.Icon({
+    iconUrl: 'https://dl.dropboxusercontent.com/s/g0g9zcw7wfsnpwk/City-Police-Badge-icon.png',
+  //shadowUrl: 'https://dl.dropboxusercontent.com/s/g8803amp99e37sr/marker-icon-red.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+    });
 
+    //Icon for Police Head and Icon
+    var policeTauko = new L.Icon({
+    iconUrl: 'https://dl.dropboxusercontent.com/s/nv8o1ciyks0k732/cartman_cop_icon.png',
+    iconSize: [35, 51],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+    });
+    var campusPoliceOffice = L.marker([38.9197003,-77.0174145],{icon: policeIcon}).addTo(mymap);
+    var campusStatPolice1 = L.marker([38.9254894,-77.0228435],{icon: policeTauko}).addTo(mymap);
+    var campusStatPolice2 = L.marker([38.9282207,-77.0199194],{icon: policeTauko}).addTo(mymap);
+    var campusStatPolice3 = L.marker([38.9254226,-77.0239378],{icon: policeTauko}).addTo(mymap);
+    var campusStatPolice4 = L.marker([38.9274800,-77.0228435],{icon: policeTauko}).addTo(mymap);
+    var campusStatPolice5 = L.marker([38.9235459,-77.0215332],{icon: policeTauko}).addTo(mymap);
+    var campusStatPolice6 = L.marker([38.9167761,-77.025568],{icon: policeTauko}).addTo(mymap);
+    var campusStatPolice7 = L.marker([38.9203169,-77.0240974],{icon: policeTauko}).addTo(mymap);
+    campusStatPolice1.bindPopup("Stationary Police");
+    campusStatPolice2.bindPopup("Stationary Police");
+    campusStatPolice3.bindPopup("Stationary Police");
+    campusStatPolice4.bindPopup("Stationary Police");
+    campusStatPolice5.bindPopup("Stationary Police");
+    campusStatPolice6.bindPopup("Stationary Police");
+    campusStatPolice7.bindPopup("Stationary Police");
 //for green map pointer icon
 var policeIcon = new L.Icon({
   iconUrl: 'https://dl.dropboxusercontent.com/s/g8803amp99e37sr/marker-icon-red.png',
