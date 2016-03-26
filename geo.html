@@ -14,10 +14,8 @@
 
   </head>
   <body>
-    <div>
-      <h2> Susan </h2>
-    </div>
-    <div id="mapid"></div>
+      <div class="col-md-8" id="mapid"></div>
+
   <script>
    // L.mapbox.accessToken = 'pk.eyJ1Ijoic3VzaGFudHN1c2FuMzkiLCJhIjoiY2lsZTZ6OGl5MGVqb3Voa3BpY3JsZXBtcCJ9.IXO82Vle6cGxtTJYPBQQIw';
     var mymap = L.map('mapid').setView([38.922, -77.0194], 17);
@@ -27,12 +25,7 @@
     id: 'sushantsusan39',
     accessToken: 'pk.eyJ1Ijoic3VzaGFudHN1c2FuMzkiLCJhIjoiY2lsZTZ6OGl5MGVqb3Voa3BpY3JsZXBtcCJ9.IXO82Vle6cGxtTJYPBQQIw'
 }).addTo(mymap);
-    // L.polyline([[38.922, -77.0194],[38.9207463,-77.0225979]],
-    // {
-    //   color: 'red',
-    //   weight : 3,
-    //   opacity: 0.5
-    // }).addTo(map)
+  
     var pointA = new L.LatLng(38.922, -77.0194);
     var pointB = new L.LatLng(38.9207463,-77.0225979);
     var pointList = [pointA, pointB];
